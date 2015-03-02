@@ -105,13 +105,13 @@ Now open up your favourite web browser and enter the URL http://127.0.0.1:8000/ 
 
 You can stop the development server at anytime by pushing ``CTRL + C`` in your terminal window. If you wish to run the development server on a different port, or allow users from other machines to access it, you can do so by supplying optional arguments. Consider the following command:
 
-``$ python manage.py runserver <your_machines_ip_address>:5555``
+``$ python manage.py runserver 0:5555``
 
-Executing this command will force the development server to respond to incoming requests on TCP port 5555. You will need to replace ``<your_machines_ip_address>`` with your computer's IP address. 
+Executing this command will force the development server to respond to incoming requests on TCP port 5555 for any ethernet adapter.
 
 When setting ports, it is unlikely that you will be able to use TCP port 80 as this is traditionally reserved for HTTP traffic. Also, any port below 1024 is considered to be `privileged <http://www.w3.org/Daemon/User/Installation/PrivilegedPorts.html>`_ by your operating system.
 
-While you won't be using the lightweight development server to deploy your application, sometimes it is nice to be able to demo your application on a computer of a colleague. Running the server with your machine's IP address will enable others to enter in ``http://<your_machines_ip_address>:<port>/`` and view your web application. Of course, this will depend on how your network is configured. There may be proxy servers or firewalls in the way which would need to be configured before this would work. Check with the administrator of the network you are using if you can't view the development server remotely.
+While you won't be using the lightweight development server to deploy your application, sometimes it is nice to be able to demo your application on a computer of a colleague. Running the server in this manner will enable others to enter in ``http://<your_machines_ip_address>:<port>/`` and view your web application. Of course, this will depend on how your network is configured. There may be proxy servers or firewalls in the way which would need to be configured before this would work. Check with the administrator of the network you are using if you can't view the development server remotely.
 
 .. note:: The ``django-admin.py`` and ``manage.py`` scripts provides a lot of useful, time-saving functionality for you. ``django-admin.py`` allows you to start new projects and apps, along with other commands. Within your project directory, ``manage.py`` allows you to perform administrative tasks within the scope of your project only. Simply execute the relevant script name without any arguments to see what you can do with each. The `official Django documentation provides a detailed list and explanation of each possible command <https://docs.djangoproject.com/en/1.7/ref/django-admin/>`_ you can supply for both scripts.
 
