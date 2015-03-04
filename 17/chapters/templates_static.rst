@@ -200,7 +200,7 @@ To demonstrate how to include static media, open up ``index.html`` located in th
 	
 	</html>
 
-First, we need to inform Django's template system that we will be using static media with the ``{% load static %}`` tag. This allows us to call the ``static`` template tag as done in ``{% static "rango.jpg" %}``. As you can see, Django template tags are denoted by curly brackets ``{ }``. In this example, the ``static`` tag will combine the ``STATIC_URL`` with ``"rango.jpg"`` so that the rendered HTML looks like the following.
+First, we need to inform Django's template system that we will be using static media with the ``{% load staticfiles %}`` tag. This allows us to call the ``static`` template tag as done in ``{% static "rango.jpg" %}``. As you can see, Django template tags are denoted by curly brackets ``{ }``. In this example, the ``static`` tag will combine the ``STATIC_URL`` with ``"rango.jpg"`` so that the rendered HTML looks like the following.
 
 .. code-block:: html
 
@@ -223,7 +223,7 @@ The ``{% static %}`` function call should be used whenever you wish to reference
 	
 	<!DOCTYPE html>
 	
-	{% load static %}
+	{% load staticfiles %}
 	
 	<html>
 	
@@ -244,7 +244,7 @@ Static files you reference will obviously need to be present within your ``stati
 
 For further information about including static media you can read through the official `Django documentation on working with static files in templates <https://docs.djangoproject.com/en/1.7/howto/static-files/#staticfiles-in-templates>`_.
 
-.. caution:: Care should be taken in your templates to ensure that any `document type declaration <http://en.wikipedia.org/wiki/Document_Type_Declaration>`_ (e.g. ``<!DOCTYPE html>``) you use in your webpages appears in the rendered output on the *first line*. This is why we put the Django template command ``{% load static %}`` on a line underneath the document type declaration, rather than at the very top. It is a requirement of HTML/XHTML variations that the document type declaration be declared on the very first line. Django commands placed before will obviously be removed in the final rendered output, but they may leave behind residual whitespace which means your output `will fail validation <http://www.w3schools.com/web/web_validate.ASP>`_ on `the W3C markup validation service <http://validator.w3.org/>`_.
+.. caution:: Care should be taken in your templates to ensure that any `document type declaration <http://en.wikipedia.org/wiki/Document_Type_Declaration>`_ (e.g. ``<!DOCTYPE html>``) you use in your webpages appears in the rendered output on the *first line*. This is why we put the Django template command ``{% load staticfiles %}`` on a line underneath the document type declaration, rather than at the very top. It is a requirement of HTML/XHTML variations that the document type declaration be declared on the very first line. Django commands placed before will obviously be removed in the final rendered output, but they may leave behind residual whitespace which means your output `will fail validation <http://www.w3schools.com/web/web_validate.ASP>`_ on `the W3C markup validation service <http://validator.w3.org/>`_.
 
 #TODO(leifos): Note that this not the best practice when you go to deployment, and that they should see: https://docs.djangoproject.com/en/1.7/howto/static-files/deployment/ and that the following solution works when ``DEBUG=True``
 
